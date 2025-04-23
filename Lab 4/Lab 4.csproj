@@ -57,7 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="AccountingUnit.cs" />
     <Compile Include="Animal.cs" />
-    <Compile Include="SpaceType.cs" />
+    <Compile Include="SpaceForAnimal.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

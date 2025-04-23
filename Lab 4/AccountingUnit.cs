@@ -10,7 +10,7 @@ namespace Lab_4
     {
         private Animal animal;
         private DateTime entryDate;
-        private int cost;
+        public int cost;
         public AccountingUnit(Animal animal, DateTime entryDate, int cost)
         {
             this.animal = animal;
