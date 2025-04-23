@@ -19,5 +19,9 @@ namespace Lab_4
             this.name = name;
             this.birthDate = birthDate;
         }
+        public string Name => name;
+        public string Origin_country => origin_country;
+        public string Species => species;
+        public DateTime BirthDate => birthDate;
     }
 }
