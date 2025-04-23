@@ -5,8 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab_4"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="650" Width="741.714">
     <Grid>
-        
+        <TextBlock FontSize="15" HorizontalAlignment="Left" Height="23" Margin="32,77,0,0" TextWrapping="Wrap" Text="Species:" VerticalAlignment="Top" Width="66"/>
+        <TextBlock FontSize="15" HorizontalAlignment="Left" Height="23" Margin="32,105,0,0" TextWrapping="Wrap" Text="Origin country:" VerticalAlignment="Top" Width="109"/>
+        <TextBlock FontSize="15" HorizontalAlignment="Left" Height="23" Margin="32,133,0,0" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Width="109"/>
+        <TextBlock FontSize="15" HorizontalAlignment="Left" Height="23" Margin="32,161,0,0" TextWrapping="Wrap" Text="Date of birth:" VerticalAlignment="Top" Width="109"/>
+        <TextBlock FontSize="15" HorizontalAlignment="Left" Height="22" Margin="32,189,0,0" TextWrapping="Wrap" Text="Date of entry:" VerticalAlignment="Top" Width="109"/>
+        <TextBlock FontSize="15" HorizontalAlignment="Left" Height="22" Margin="32,216,0,0" TextWrapping="Wrap" Text="Keeping cost:" VerticalAlignment="Top" Width="124"/>
+        <TextBlock FontSize="15" HorizontalAlignment="Left" Height="22" Margin="32,243,0,0" TextWrapping="Wrap" Text="Space type:" VerticalAlignment="Top" Width="124"/>
+        <TextBlock FontSize="15" HorizontalAlignment="Left" Height="22" Margin="32,270,0,0" TextWrapping="Wrap" Text="Space number:" VerticalAlignment="Top" Width="124"/>
+        <TextBlock FontSize="15" HorizontalAlignment="Left" Height="22" Margin="32,297,0,0" TextWrapping="Wrap" Text="Space size:" VerticalAlignment="Top" Width="124"/>
+        <TextBlock FontSize="15" HorizontalAlignment="Left" Height="22" Margin="32,324,0,0" TextWrapping="Wrap" Text="Cost for cleaning:" VerticalAlignment="Top" Width="124"/>
+
+        <Button Content="Add animal" HorizontalAlignment="Left" Margin="141,24,0,0" VerticalAlignment="Top" Width="98" Click="AddAnimal_Click"/>
+        <Button Content="Place animal" HorizontalAlignment="Left" Margin="259,24,0,0" VerticalAlignment="Top" Width="98" Click="PlaceAnimal_Click"/>
+        <Button Content="Show short info" HorizontalAlignment="Left" Margin="375,24,0,0" VerticalAlignment="Top" Width="98" Click="ShowShortInfo_Click"/>
+        <Button Content="Show full info" HorizontalAlignment="Left" Margin="492,24,0,0" VerticalAlignment="Top" Width="98" Click="ShowFullInfo_Click"/>
+
+        <Rectangle Fill="#FFD7D7D7" HorizontalAlignment="Left" Stroke="Black" Height="222" VerticalAlignment="Bottom" Width="736"/>
+
+        <TextBox Name="TextBox_Species" HorizontalAlignment="Left" Height="23" Margin="163,77,0,0" BorderBrush="Black" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
+        <TextBox Name="TextBox_OriginCountry" HorizontalAlignment="Left" Height="23" Margin="163,105,0,0" BorderBrush="Black" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
+        <TextBox Name="TextBox_Name" HorizontalAlignment="Left" Height="23" Margin="163,133,0,0" BorderBrush="Black" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
+        <DatePicker Name="DatePicker_BirthDate" HorizontalAlignment="Left" Margin="163,161,0,0" VerticalAlignment="Top" Height="23" Width="190"/>
+        <DatePicker Name="DatePicker_EntryDate" HorizontalAlignment="Left" Margin="163,188,0,0" VerticalAlignment="Top" Height="23" Width="190"/>
+        <TextBox Name="TextBox_KeepingCost" HorizontalAlignment="Left" Height="23" Margin="163,216,0,0" BorderBrush="Black" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
+
+        <ComboBox Name="ComboBox_SpaceType" HorizontalAlignment="Left" Margin="163,244,0,0" VerticalAlignment="Top" Width="190">
+            <ComboBoxItem Content="Cage"/>
+            <ComboBoxItem Content="Aviary"/>
+            <ComboBoxItem Content="Aquarium"/>
+            <ComboBoxItem Content="Terrarium"/>
+        </ComboBox>
+
+        <TextBox Name="TextBox_SpaceNumber" HorizontalAlignment="Left" Height="23" Margin="163,266,0,0" BorderBrush="Black" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
+        <TextBox Name="TextBox_SpaceSize" HorizontalAlignment="Left" Height="23" Margin="163,296,0,0" BorderBrush="Black" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
+        <TextBox Name="TextBox_CostForCleaning" HorizontalAlignment="Left" Height="23" Margin="163,324,0,0" BorderBrush="Black" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
     </Grid>
 </Window>
