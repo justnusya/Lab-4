@@ -24,5 +24,33 @@ namespace Lab_4
         {
             InitializeComponent();
         }
+
+        private void AddAnimalButton_Click(object sender, RoutedEventArgs e)
+        {
+            string species = TextBoxSpecies.Text.Trim();
+            string country = TextBoxOriginCountry.Text.Trim();
+            string name = TextBoxName.Text.Trim();
+            DateTime birthDate = DatePickerBirthDate.SelectedDate.Value;
+
+            if (string.IsNullOrWhiteSpace(species) || string.IsNullOrWhiteSpace(country) || string.IsNullOrWhiteSpace(name))
+            {
+                MessageBox.Show("Please fill in all the fields for species, origin country, and name.", "Input Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (DatePickerBirthDate.SelectedDate == null)
+            {
+                MessageBox.Show("Please select the birth date.", "Input Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            Animal creature = new Animal(species, country, name, birthDate);
+
+            ListBox.Items.Add($"{creature.Name} ({creature.Species}, {creature.Origin_country}) - born {creature.BirthDate.ToShortDateString()}");
+
+            TextBoxSpecies.Clear();
+            TextBoxOriginCountry.Clear();
+            TextBoxName.Clear();
+            DatePickerBirthDate.SelectedDate = null;
+        }
     }
 }
