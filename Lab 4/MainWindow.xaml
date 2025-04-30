@@ -5,45 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab_4"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="741.714" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="500" Width="700" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Rectangle Fill="#FFD7D7D7" HorizontalAlignment="Left" Stroke="Black" Height="310" VerticalAlignment="Bottom" Width="211" Margin="18,0,0,240.714"/>
-        <TextBlock FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Height="23" Margin="93,79,0,0" Text="Animal" VerticalAlignment="Top" Width="66"/>
-        <Rectangle Fill="#FFD7D7D7" HorizontalAlignment="Left" Stroke="Black" Height="309" VerticalAlignment="Bottom" Width="211" Margin="263,0,0,240.714"/>
-        <TextBlock FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Height="27" Margin="294,80,0,0" Text="Accounting Unit" VerticalAlignment="Top" Width="180"/>
-        <Rectangle Fill="#FFD7D7D7" HorizontalAlignment="Left" Stroke="Black" Height="310" VerticalAlignment="Bottom" Width="211" Margin="505,0,0,240.714"/>
-        <TextBlock FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Height="27" Margin="586,79,0,0" Text="Space" VerticalAlignment="Top" Width="57"/>
+        <TextBlock Text=" Облік тварин у приміщеннях" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="20" Width="379"/>
+        <Rectangle Fill="#FFD7D7D7" HorizontalAlignment="Left" Stroke="Black" Height="340" VerticalAlignment="Bottom" Width="520" Margin="20,0,0,50"/>
+        <ListBox x:Name="SpacesBox" HorizontalAlignment="Left" Height="320" VerticalAlignment="Bottom" Width="500" Margin="30,0,0,60"/>
+        <Button x:Name="AddSpace" Content="Add" Width="70" Height="20" HorizontalAlignment="Right" Margin="35" RenderTransformOrigin="0.504,0.5" Click="AddSpace_Click"/>
+        <Button x:Name="EditSpace" Content="Edit" Width="70" Height="20" HorizontalAlignment="Right" Margin="0,60,35,0"/>
+        <Button x:Name="DeleteSpace" Content="Delete" Width="70" Height="20" HorizontalAlignment="Right" Margin="0,125,35,0"/>
 
-        <TextBlock FontSize="15" HorizontalAlignment="Left" Height="23" Margin="61,112,0,0" Text="Species:" VerticalAlignment="Top" Width="66"/>
-        <TextBlock FontSize="15" HorizontalAlignment="Left" Height="23" Margin="61,169,0,0" Text="Origin country:" VerticalAlignment="Top" Width="109"/>
-        <TextBlock FontSize="15" HorizontalAlignment="Left" Height="23" Margin="61,226,0,0" Text="Name:" VerticalAlignment="Top" Width="109"/>
-        <TextBlock FontSize="15" HorizontalAlignment="Left" Height="23" Margin="61,289,0,0" Text="Date of birth:" VerticalAlignment="Top" Width="109" />
-        <TextBlock FontSize="15" HorizontalAlignment="Left" Height="22" Margin="313,112,0,0" Text="Date of entry:" VerticalAlignment="Top" Width="109" />
-        <TextBlock FontSize="15" HorizontalAlignment="Left" Height="22" Margin="313,169,0,0" Text="Cost of keeping:" VerticalAlignment="Top" Width="124"/>
-        <TextBlock FontSize="15" HorizontalAlignment="Left" Height="22" Margin="554,114,0,0" Text="Type of space:" VerticalAlignment="Top" Width="124"/>
-        <TextBlock FontSize="15" HorizontalAlignment="Left" Height="22" Margin="554,170,0,0" Text="Space number:" VerticalAlignment="Top" Width="124" />
-        <TextBlock FontSize="15" HorizontalAlignment="Left" Height="22" Margin="554,233,0,0" Text="Space size:" VerticalAlignment="Top" Width="124" />
-        <TextBlock FontSize="15" HorizontalAlignment="Left" Height="22" Margin="554,289,0,0" Text="Cost for cleaning:" VerticalAlignment="Top" Width="124" />
-
-        <Button x:Name="ButtonAddAnimal" Content="Add animal" HorizontalAlignment="Left" Margin="61,348,0,0" VerticalAlignment="Top" Width="119" Click="AddAnimalButton_Click"/>
-        <Button x:Name="ButtonAddAccountingUnit" Content="Add Accounting Unit" HorizontalAlignment="Left" Margin="299,348,0,0" VerticalAlignment="Top" Width="142"/>
-        <Button x:Name="ButtonAddSpace" Content="Add space" HorizontalAlignment="Left" Margin="554,348,0,0" VerticalAlignment="Top" Width="119"/>
-        <Button x:Name="ButtonPlaceAnimal" Content="Place animal" HorizontalAlignment="Left" Margin="179,26,0,0" VerticalAlignment="Top" Width="98"/>
-        <Button x:Name="ButtonShowShortInfo" Content="Show short info" HorizontalAlignment="Left" Margin="309,26,0,0" VerticalAlignment="Top" Width="98"/>
-        <Button x:Name="ButtonShowFullInfo" Content="Show full info" HorizontalAlignment="Left" Margin="429,26,0,0" VerticalAlignment="Top" Width="98"/>
-
-        <Rectangle Fill="#FFD7D7D7" HorizontalAlignment="Left" Stroke="Black" Height="222" VerticalAlignment="Bottom" Width="736"/>
-
-        <TextBox x:Name="TextBoxSpecies" HorizontalAlignment="Left" Height="23" Margin="61,135,0,0" BorderBrush="Black" VerticalAlignment="Top" Width="119"/>
-        <TextBox x:Name="TextBoxOriginCountry" HorizontalAlignment="Left" Height="23" Margin="61,192,0,0" BorderBrush="Black" VerticalAlignment="Top" Width="119"/>
-        <TextBox x:Name="TextBoxName" HorizontalAlignment="Left" Height="23" Margin="61,249,0,0" BorderBrush="Black" VerticalAlignment="Top" Width="119"/>
-        <DatePicker x:Name="DatePickerBirthDate" HorizontalAlignment="Left" Margin="61,312,0,0" VerticalAlignment="Top" Height="23" Width="119"/>
-        <DatePicker x:Name="DatePickerEntryDate" HorizontalAlignment="Left" Margin="313,134,0,0" VerticalAlignment="Top" Height="23" Width="119"/>
-        <TextBox x:Name="TextBoxKeepingCost" HorizontalAlignment="Left" Height="23" Margin="313,191,0,0" BorderBrush="Black" VerticalAlignment="Top" Width="119"/>
-        <ComboBox x:Name="ComboBoxSpaceType" HorizontalAlignment="Left" Margin="554,135,0,0" VerticalAlignment="Top" Width="119"/>
-        <TextBox x:Name="TextBoxSpaceNumber" HorizontalAlignment="Left" Height="23" Margin="554,191,0,0" BorderBrush="Black" VerticalAlignment="Top" Width="119"/>
-        <TextBox x:Name="TextBoxSpaceSize" HorizontalAlignment="Left" Height="23" Margin="554,255,0,0" BorderBrush="Black" VerticalAlignment="Top" Width="119"/>
-        <TextBox x:Name="TextBoxCleaningCost" HorizontalAlignment="Left" Height="23" Margin="554,312,0,0" BorderBrush="Black" VerticalAlignment="Top" Width="119"/>
-        <ListBox x:Name="ListBox" HorizontalAlignment="Left" Height="194" VerticalAlignment="Top" Width="716" Margin="10,418,0,0"/>
+        <Button x:Name="ShortInfo" Content="View short info" Width="100" Height="20" HorizontalAlignment="Left" VerticalAlignment="Bottom"  Margin="35,0,0,15"/>
+        <Button x:Name="Save" Content="Save" Width="70" Height="20" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="0,0,125,15"/>
+        <Button x:Name="Close" Content="Close" Width="70" Height="20" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="0,0,35,15"/>
     </Grid>
 </Window>

@@ -10,25 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Lab_4
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for RoomEditorWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RoomEditorWindow : Window
     {
-        public MainWindow()
+        public RoomEditorWindow()
         {
             InitializeComponent();
-        }
-
-        private void AddSpace_Click(object sender, RoutedEventArgs e)
-        {
-            RoomEditorWindow RoonEditor_window = new RoomEditorWindow();
-            RoonEditor_window.Show();
         }
     }
 }
