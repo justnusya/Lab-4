@@ -1,0 +1,26 @@
+﻿<Window x:Class="Lab_4.AnimalEditor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab_4"
+        mc:Ignorable="d"
+        Title="AnimalEditor" Height="400.571" Width="380">
+    <Grid>
+        <TextBlock Text="Тварина" FontSize="20" Margin="10,10,10.286,304" TextDecorations="Underline"/>
+        <TextBlock Text="Вид" FontSize="15" Margin="25,51,85.286,247"/>
+        <TextBox Width="166" Height="18" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,73,0,0"/>
+        <TextBlock Text="Країна походження" FontSize="15" VerticalAlignment="Top" Margin="25,100,24.286,0"/>
+        <TextBox Width="166" Height="18" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,125,0,0"/>
+        <TextBlock Text="Ім'я" FontSize="15" Margin="25,151,85.286,114"/>
+        <TextBox Width="166" Height="17" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,172,0,183"/>
+        <TextBlock Text="Вартість утримання, грн" FontSize="15" VerticalAlignment="Center" Margin="25,305,48.286,42" Height="25"/>
+        <TextBox Width="166" Height="17" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,330,0,25"/>
+        <TextBlock Text="Дата народження" FontSize="15" VerticalAlignment="Center" Margin="25,195,49.286,152" Height="25"/>
+        <DatePicker HorizontalAlignment="Left" Margin="25,275,0,0" VerticalAlignment="Top"/>
+        <TextBlock Text="Дата надходження" FontSize="15" VerticalAlignment="Center" Margin="25,250,49.286,97" Height="25"/>
+        <DatePicker HorizontalAlignment="Left" Margin="25,220,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="Save" Content="Save" Height="20" Width="70" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,15,20,0" 
+            FontWeight="Bold" BorderBrush="Black" Background="LimeGreen"/>
+    </Grid>
+</Window>

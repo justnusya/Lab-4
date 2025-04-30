@@ -57,10 +57,17 @@
     </ApplicationDefinition>
     <Compile Include="AccountingUnit.cs" />
     <Compile Include="Animal.cs" />
+    <Compile Include="AnimalEditor.xaml.cs">
+      <DependentUpon>AnimalEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RoomEditorWindow.xaml.cs">
       <DependentUpon>RoomEditorWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="SpaceForAnimal.cs" />
+    <Page Include="AnimalEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
