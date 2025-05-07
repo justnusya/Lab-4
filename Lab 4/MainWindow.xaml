@@ -11,11 +11,11 @@
         <Rectangle Fill="#FFD7D7D7" HorizontalAlignment="Left" Stroke="Black" Height="340" VerticalAlignment="Bottom" Width="520" Margin="20,0,0,50"/>
         <ListBox x:Name="SpacesBox" HorizontalAlignment="Left" Height="320" VerticalAlignment="Bottom" Width="500" Margin="30,0,0,60"/>
         <Button x:Name="AddSpace" Content="Add" Width="70" Height="20" HorizontalAlignment="Right" Margin="35" RenderTransformOrigin="0.504,0.5" Click="AddSpace_Click"/>
-        <Button x:Name="EditSpace" Content="Edit" Width="70" Height="20" HorizontalAlignment="Right" Margin="0,60,35,0"/>
-        <Button x:Name="DeleteSpace" Content="Delete" Width="70" Height="20" HorizontalAlignment="Right" Margin="0,125,35,0"/>
+        <Button x:Name="EditSpace" Content="Edit" Width="70" Height="20" HorizontalAlignment="Right" Margin="0,60,35,0" Click="EditSpace_Click"/>
+        <Button x:Name="DeleteSpace" Content="Delete" Width="70" Height="20" HorizontalAlignment="Right" Margin="0,125,35,0" Click="DeleteSpace_Click"/>
 
         <Button x:Name="ShortInfo" Content="View short info" Width="100" Height="20" HorizontalAlignment="Left" VerticalAlignment="Bottom"  Margin="35,0,0,15"/>
-        <Button x:Name="Save" Content="Save" Width="70" Height="20" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="0,0,125,15"/>
-        <Button x:Name="Close" Content="Close" Width="70" Height="20" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="0,0,35,15"/>
+        <Button x:Name="Save" Content="Save" Width="70" Height="20" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="0,0,125,15" Click="Save_Click"/>
+        <Button x:Name="Close" Content="Close" Width="70" Height="20" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="0,0,35,15" Click="Close_Click"/>
     </Grid>
 </Window>

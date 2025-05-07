@@ -10,13 +10,13 @@
         <Rectangle Width="Auto" Height="245" Fill="LightGray" VerticalAlignment="Top" />
         <TextBlock Text="Приміщення" FontSize="20" Margin="10,10,243.286,416.429" TextDecorations="Underline"/>
         <TextBlock Text="Тип" FontSize="15" Margin="25,51,85.286,112.429"/>
-        <ComboBox Width="166" Height="17" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,73,0,0" />
+        <ComboBox x:Name="ComboBoxType" Width="166" Height="17" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,73,0,0" />
         <TextBlock Text="Номер" FontSize="15" Margin="25,98,85.286,161.429"/>
-        <TextBox Width="166" Height="18" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,125,0,0"/>
+        <TextBox x:Name="TextBoxNumber" Width="166" Height="18" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,125,0,0"/>
         <TextBlock Text="Розмір, м²" FontSize="15" Margin="25,151,85.286,213.429"/>
-        <TextBox Width="166" Height="17" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,172,0,282.429"/>
+        <TextBox x:Name="TextBoxSize" Width="166" Height="17" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,172,0,282.429"/>
         <TextBlock Text="Вартість прибирання, грн" FontSize="15" VerticalAlignment="Center" Margin="25,196,48.286,250.429" Height="25"/>
-        <TextBox Width="166" Height="17" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,221,0,233.429"/>
+        <TextBox x:Name="TextBoxCleaningCost" Width="166" Height="17" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,221,0,233.429"/>
 
         <TextBlock Text="Тварини" FontSize="18" VerticalAlignment="Center" Margin="10,50,0,0" TextDecorations="Underline"/>
         <Rectangle Fill="#FFD7D7D7" HorizontalAlignment="Left" Stroke="Black" Height="170" VerticalAlignment="Bottom" Width="360" Margin="15"/>
