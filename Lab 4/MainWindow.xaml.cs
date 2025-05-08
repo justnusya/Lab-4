@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lab_4.Dtos;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -78,13 +79,13 @@ namespace Lab_4
                     };
 
                     var json = File.ReadAllText(filePath);
-                    var loadedRooms = JsonSerializer.Deserialize<ObservableCollection<Room>>(json, options);
-                    if (loadedRooms != null)
+                    var loadedDtos = JsonSerializer.Deserialize<List<RoomDto>>(json, options);
+                    if (loadedDtos != null)
                     {
                         rooms.Clear();
-                        foreach (var room in loadedRooms)
+                        foreach (var dto in loadedDtos)
                         {
-                            rooms.Add(room);
+                            rooms.Add(Mapper.FromDto(dto));
                         }
                     }
                 }
@@ -94,6 +95,7 @@ namespace Lab_4
                 MessageBox.Show($"Помилка при завантаженні: {ex.Message}");
             }
         }
+
         private void SaveDataToJson(string filePath)
         {
             try
@@ -104,7 +106,8 @@ namespace Lab_4
                     Converters = { new System.Text.Json.Serialization.JsonStringEnumConverter() }
                 };
 
-                var json = JsonSerializer.Serialize(rooms, options);
+                var dtoList = rooms.Select(Mapper.ToDto).ToList();
+                var json = JsonSerializer.Serialize(dtoList, options);
                 File.WriteAllText(filePath, json);
                 MessageBox.Show("Дані успішно збережені!");
             }
@@ -113,5 +116,6 @@ namespace Lab_4
                 MessageBox.Show($"Помилка при збереженні: {ex.Message}");
             }
         }
+
     }
 }

@@ -89,6 +89,8 @@
     <Compile Include="AnimalEditor.xaml.cs">
       <DependentUpon>AnimalEditor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dtos\AnimalDto.cs" />
+    <Compile Include="Dtos\RoomDto.cs" />
     <Compile Include="RoomEditorWindow.xaml.cs">
       <DependentUpon>RoomEditorWindow.xaml</DependentUpon>
     </Compile>
