@@ -9,22 +9,31 @@
     <Grid>
         <Rectangle Width="Auto" Height="245" Fill="LightGray" VerticalAlignment="Top" />
         <TextBlock Text="Приміщення" FontSize="20" Margin="10,10,243.286,416.429" TextDecorations="Underline"/>
-        <TextBlock Text="Тип" FontSize="15" Margin="25,51,85.286,112.429"/>
-        <ComboBox x:Name="ComboBoxType" Width="166" Height="17" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,73,0,0" />
-        <TextBlock Text="Номер" FontSize="15" Margin="25,98,85.286,161.429"/>
-        <TextBox x:Name="TextBoxNumber" Width="166" Height="18" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,125,0,0"/>
-        <TextBlock Text="Розмір, м²" FontSize="15" Margin="25,151,85.286,213.429"/>
-        <TextBox x:Name="TextBoxSize" Width="166" Height="17" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,172,0,282.429"/>
-        <TextBlock Text="Вартість прибирання, грн" FontSize="15" VerticalAlignment="Center" Margin="25,196,48.286,250.429" Height="25"/>
-        <TextBox x:Name="TextBoxCleaningCost" Width="166" Height="17" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,221,0,233.429"/>
+        <TextBlock Text="Тип" FontSize="15" Margin="25,43,85,120"/>
+        <ComboBox x:Name="ComboBoxType" Width="166" Height="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,64,0,0" RenderTransformOrigin="0.5,0.5" >
+            <ComboBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0"/>
+                </TransformGroup>
+            </ComboBox.RenderTransform>
+        </ComboBox>
+        <TextBlock Text="Номер" FontSize="15" Margin="25,88,85,171"/>
+        <TextBox x:Name="TextBoxNumber" Width="166" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,107,0,0" PreviewTextInput="TextBox_Numeric_PreviewTextInput" DataObject.Pasting="TextBox_Numeric_Pasting"/>
+        <TextBlock Text="Розмір, м²" FontSize="15" Margin="25,130,85,234"/>
+        <TextBox x:Name="TextBoxSize" Width="166" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,151,0,0" PreviewTextInput="TextBox_Numeric_PreviewTextInput" DataObject.Pasting="TextBox_Numeric_Pasting"/>
+        <TextBlock Text="Вартість прибирання, грн" FontSize="15" VerticalAlignment="Top" Margin="25,174,48,0" Height="25"/>
+        <TextBox x:Name="TextBoxCleaningCost" Width="166" Height="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,195,0,0" PreviewTextInput="TextBox_Numeric_PreviewTextInput" DataObject.Pasting="TextBox_Numeric_Pasting"/>
 
         <TextBlock Text="Тварини" FontSize="18" VerticalAlignment="Center" Margin="10,50,0,0" TextDecorations="Underline"/>
         <Rectangle Fill="#FFD7D7D7" HorizontalAlignment="Left" Stroke="Black" Height="170" VerticalAlignment="Bottom" Width="360" Margin="15"/>
         <ListBox x:Name="SpacesBox" HorizontalAlignment="Left" Height="150" VerticalAlignment="Bottom" Width="340" Margin="25,0,0,25"/>
-        <Button x:Name="AddAccUnit" Content="Add" Height="20" Width="70" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,20,110"/>
-        <Button x:Name="EditAccUnit" Content="Edit" Height="20" Width="70" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,20,80"/>
-        <Button x:Name="DeleteAccUnit" Content="Delete" Height="20" Width="70" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,20,50"/>
+        <Button x:Name="AddAccUnit" Content="Add" Height="20" Width="70" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,20,110" Click="AddAccUnit_Click"/>
+        <Button x:Name="EditAccUnit" Content="Edit" Height="20" Width="70" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,20,80" Click="EditAccUnit_Click"/>
+        <Button x:Name="DeleteAccUnit" Content="Delete" Height="20" Width="70" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,20,50" Click="DeleteAccUnit_Click"/>
         <Button x:Name="Save" Content="Save" Height="20" Width="70" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,15,20,0" 
-                FontWeight="Bold" BorderBrush="Black" Background="LimeGreen"/>
+                FontWeight="Bold" BorderBrush="Black" Background="LimeGreen" Click="SaveAccUnit_Click"/>
     </Grid>
 </Window>

@@ -14,12 +14,9 @@ using System.Windows.Shapes;
 
 namespace Lab_4
 {
-    /// <summary>
-    /// Interaction logic for AnimalEditor.xaml
-    /// </summary>
     public partial class AnimalEditor : Window
     {
-        public Animal Animal { get; set; } // Для збереження введених даних
+        public Animal Animal { get; set; }
 
         public AnimalEditor()
         {
@@ -41,15 +38,61 @@ namespace Lab_4
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             Animal.Species = Species.Text;
-            Animal.Country = Country.Text;
+            Animal.OriginCountry = Country.Text;
             Animal.Name = Name.Text;
             Animal.CostOfKeeping = decimal.Parse(CostOfKeeping.Text);
             Animal.EntryDate = EntryDate.SelectedDate.Value;
             Animal.BirthDate = BirthDate.SelectedDate.Value;
 
-            DialogResult = true; // Повертаємо дані у основне вікно
+            DialogResult = true;
             Close();
         }
-    }
+        private void TextBox_Numeric_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !IsTextNumeric(e.Text);
+        }
 
+        private static bool IsTextNumeric(string text)
+        {
+            return text.All(char.IsDigit);
+        }
+        private void TextBox_Numeric_Pasting(object sender, DataObjectPastingEventArgs e)
+        {
+            if (e.DataObject.GetDataPresent(typeof(string)))
+            {
+                var text = (string)e.DataObject.GetData(typeof(string));
+                if (!IsTextNumeric(text))
+                {
+                    e.CancelCommand();
+                }
+            }
+            else
+            {
+                e.CancelCommand();
+            }
+        }
+        private void TextBox_Word_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !IsTextLetterOrApostrophe(e.Text);
+        }
+        private void TextBox_Word_Pasting(object sender, DataObjectPastingEventArgs e)
+        {
+            if (e.DataObject.GetDataPresent(typeof(string)))
+            {
+                var text = (string)e.DataObject.GetData(typeof(string));
+                if (!IsTextLetterOrApostrophe(text))
+                {
+                    e.CancelCommand();
+                }
+            }
+            else
+            {
+                e.CancelCommand();
+            }
+        }
+        private static bool IsTextLetterOrApostrophe(string text)
+        {
+            return text.All(c => char.IsLetter(c) || c == '\'' || c == ' ');
+        }
+    }
 }

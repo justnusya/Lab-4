@@ -14,71 +14,98 @@ using System.Windows.Shapes;
 
 namespace Lab_4
 {
-    /// <summary>
-    /// Interaction logic for RoomEditorWindow.xaml
-    /// </summary>
     public partial class RoomEditorWindow : Window
     {
-        public Room Room { get; set; } // Об'єкт для редагування
-
+        public Room Room { get; set; } = new Room();
+        private readonly List<Animal> animals = new List<Animal>();
         public RoomEditorWindow()
         {
             InitializeComponent();
-            //Room = new Room(); // Створюємо нове приміщення
+            ComboBoxType.ItemsSource = Enum.GetValues(typeof(RoomType));
+            SpacesBox.ItemsSource = animals;
         }
 
         public RoomEditorWindow(Room room) : this()
         {
             Room = room;
-            // Заповнюємо поля редагування
-            ComboBoxType.SelectedItem = room.roomType;
-            TextBoxNumber.Text = room.Number.ToString();
+            ComboBoxType.SelectedItem = room.Type;
+            TextBoxNumber.Text = room.Number;
             TextBoxSize.Text = room.Size.ToString();
             TextBoxCleaningCost.Text = room.CleaningCost.ToString();
+            animals.AddRange(room.Animals);
+            SpacesBox.Items.Refresh();
         }
 
         private void AddAccUnit_Click(object sender, RoutedEventArgs e)
         {
-            var animalEditor = new AnimalEditor();
-            animalEditor.ShowDialog();
-
-            if (animalEditor.DialogResult == true)
+            var editor = new AnimalEditor();
+            if (editor.ShowDialog() == true)
             {
-                Room.AddAnimal(AccountingUnit(animalEditor.Animal)); // Додаємо тварину до кімнати
+                animals.Add(editor.Animal);
+                SpacesBox.Items.Refresh();
             }
         }
 
         private void EditAccUnit_Click(object sender, RoutedEventArgs e)
         {
-            if (SpacesBox.SelectedItem == null) return; // Якщо не вибрано тварину для редагування
-
-            var selectedAnimal = (Animal)SpacesBox.SelectedItem;
-            var animalEditor = new AnimalEditor(selectedAnimal);
-            animalEditor.ShowDialog();
-
-            if (animalEditor.DialogResult == true)
+            if (SpacesBox.SelectedItem is Animal selected)
             {
-                //Room.UpdateAnimal(selectedAnimal); // Оновлюємо інформацію про тварину
+                var editor = new AnimalEditor(selected);
+                if (editor.ShowDialog() == true)
+                {
+                    int index = animals.IndexOf(selected);
+                    animals[index] = editor.Animal;
+                    SpacesBox.Items.Refresh();
+                }
             }
         }
 
         private void DeleteAccUnit_Click(object sender, RoutedEventArgs e)
         {
-            if (SpacesBox.SelectedItem == null) return;
-
-            //Room.RemoveAnimal((Animal)SpacesBox.SelectedItem); // Видаляємо тварину з кімнати
+            if (SpacesBox.SelectedItem is Animal selected)
+            {
+                animals.Remove(selected);
+                SpacesBox.Items.Refresh();
+            }
         }
 
-        private void Save_Click(object sender, RoutedEventArgs e)
+        private void SaveAccUnit_Click(object sender, RoutedEventArgs e)
         {
-            // Оновлюємо дані приміщення
-            Room.roomType = (RoomType)ComboBoxType.SelectedItem;
-            Room.Number = int.Parse(TextBoxNumber.Text);
-            Room.Size = int.Parse(TextBoxSize.Text);
-            Room.CleaningCost = int.Parse(TextBoxCleaningCost.Text);
+            if (ComboBoxType.SelectedItem is RoomType selectedType)
+            {
+                Room.Type = selectedType;
+            }
+            Room.Number = TextBoxNumber.Text;
+            Room.Size = double.TryParse(TextBoxSize.Text, out var size) ? size : 0;
+            Room.CleaningCost = double.TryParse(TextBoxCleaningCost.Text, out var cost) ? cost : 0;
+            Room.Animals = new List<Animal>(animals);
 
-            DialogResult = true; // Повертаємо зміни в основне вікно
+            DialogResult = true;
             Close();
+        }
+        private void TextBox_Numeric_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !IsTextNumeric(e.Text);
+        }
+
+        private static bool IsTextNumeric(string text)
+        {
+            return text.All(char.IsDigit);
+        }
+        private void TextBox_Numeric_Pasting(object sender, DataObjectPastingEventArgs e)
+        {
+            if (e.DataObject.GetDataPresent(typeof(string)))
+            {
+                var text = (string)e.DataObject.GetData(typeof(string));
+                if (!IsTextNumeric(text))
+                {
+                    e.CancelCommand();
+                }
+            }
+            else
+            {
+                e.CancelCommand();
+            }
         }
     }
 }
